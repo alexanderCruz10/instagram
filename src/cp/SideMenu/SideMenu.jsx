@@ -1,11 +1,13 @@
-import { Avatar, Box, Flex, Link } from '@chakra-ui/react'
+import { Avatar, Box, Flex, Link, Button } from '@chakra-ui/react'
 import { Link as RouterLink } from "react-router-dom"
+import { Tooltip } from "../../components/ui/tooltip";
 import { CreatePostLogo, InstagramLogo, InstagramMobileLogo, NotificationsLogo, SearchLogo } from "../../assets/constants";
 import React from 'react'
 import { AiFillHome } from 'react-icons/ai';
 import Home from './Home';
 import Notifications from './Notifications';
 import SideMenuItems from './SideMenuItems';
+import { BiLogOut } from 'react-icons/bi';
 
 const SideMenu = () => {
 
@@ -25,6 +27,19 @@ const SideMenu = () => {
         <Flex direction={"column"} gap={5} cursor={"pointer"}>
           <SideMenuItems/> 
         </Flex>
+
+        {/* LOGOUT */}
+        <Tooltip hasArrow label={"Logout"} placement='right' ml={1} 
+          openDelay={500} display={{ base: "block", md: "none" }}>
+            <Flex alignItems={"center"} gap={4} _hover={{ bg: "whiteAlpha.400" }} borderRadius={6}  p={2}
+             w={{ base: 10, md: "full" }} mt={"auto"} justifyContent={{ base: "center", md: "flex-start" }}> 
+            <BiLogOut size={25}/>
+            <Button	display={{ base: "none", md: "block" }} variant={"ghost"}
+            	_hover={{ bg: "transparent" }}>
+							Logout
+						</Button>
+            </Flex>
+        </Tooltip>
       </Flex>
     </Box>
   )
